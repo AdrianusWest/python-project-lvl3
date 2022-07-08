@@ -1,0 +1,8 @@
+.coverage
+coverage.xml
+dist
+.idea
+.pytest_cache
+.venv
+gendiff/__pycache__
+gendiff/scripts/__pycache__
