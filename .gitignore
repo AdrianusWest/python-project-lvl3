@@ -4,5 +4,5 @@ dist
 .idea
 .pytest_cache
 .venv
-gendiff/__pycache__
-gendiff/scripts/__pycache__
+page-loader/__pycache__
+page-loader/scripts/__pycache__
