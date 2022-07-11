@@ -6,7 +6,7 @@ import tempfile
 
 from page_loader.download import download
 from page_loader.name_formatter import get_file_name
-from tests.test_file_reader import read_file
+from tests.file_reader import read_file
 
 
 FILES_COUNT = 4
