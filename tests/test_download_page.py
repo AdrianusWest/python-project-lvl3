@@ -1,12 +1,14 @@
 import os
-import pytest
-import requests_mock
 import tempfile
 
+from file_reader import read_file
 
 from page_loader.download import download
 from page_loader.name_formatter import get_file_name
-from file_reader import read_file
+
+import pytest
+
+import requests_mock
 
 
 FILES_COUNT = 4
@@ -47,7 +49,7 @@ def correct_names():
         'html': 'ru-hexlet-io-courses.html',
         'img': 'ru-hexlet-io-assets-professions-nodejs.png',
         'css': 'ru-hexlet-io-assets-application.css',
-        'js': 'ru-hexlet-io-packs-js-runtime.js'
+        'js': 'ru-hexlet-io-packs-js-runtime.js',
     }
 
 
@@ -85,7 +87,7 @@ def test_download_page_with_res(content, correct_names, image, style, script):
             assert read_file(js_path, MODE.get('CONTENT'))
             assert js_name == correct_names.get('js')
             page_name, _ = os.path.splitext(get_file_name(
-                BASE_URL + SITE_PATH)
+                BASE_URL + SITE_PATH),
             )
             files_count = len(os.listdir(os.path.join(temp,
                                                       page_name + '_files')))
@@ -105,7 +107,7 @@ def test_download_page_without_res(correct_names, html):
 @pytest.mark.parametrize('url, exception', [
     ('ru.hexlet.io', 'WRONG ADDRESS!'),
     ('sptth://ru.hexlet.io', 'WRONG ADDRESS!'),
-    ('https://site.com/404', 'CONNECTION ERROR!')
+    ('https://site.com/404', 'CONNECTION ERROR!'),
 ])
 def test_download_with_errors(url, exception):
     with tempfile.TemporaryDirectory() as temp:

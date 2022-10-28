@@ -1,6 +1,7 @@
-import sys
-import os
 import argparse
+import os
+import sys
+
 from page_loader.download import download
 from page_loader.logger import get_logger
 
@@ -14,7 +15,7 @@ def main():
     parser.add_argument(
         "-o", "--output",
         help='Set the path to directory',
-        default=os.getcwd()
+        default=os.getcwd(),
     )
     args = parser.parse_args()
     try:

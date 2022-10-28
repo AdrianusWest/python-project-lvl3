@@ -1,5 +1,6 @@
-import requests
 from page_loader.logger import get_logger
+
+import requests
 
 
 logger = get_logger(__name__)

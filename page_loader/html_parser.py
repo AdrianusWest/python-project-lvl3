@@ -1,16 +1,18 @@
-from bs4 import BeautifulSoup
 import os
-
 from urllib.parse import urljoin, urlparse, urlunparse
-from page_loader.name_formatter import get_file_name
+
+from bs4 import BeautifulSoup
+
 from page_loader.logger import get_logger
+from page_loader.name_formatter import get_file_name
+
 from progress.bar import ChargingBar
 
 
 TAGS_ATTRIBUTES = {
     'img': 'src',
     'script': 'src',
-    'link': 'href'
+    'link': 'href',
 }
 
 
@@ -33,7 +35,7 @@ def prepare_resources(resources_paths, files_dir_path, base_url):
     resources = []
     parsed_base_url = urlparse(base_url)
     domain = urlunparse(
-        (parsed_base_url.scheme, parsed_base_url.netloc, '', '', '', '')
+        (parsed_base_url.scheme, parsed_base_url.netloc, '', '', '', ''),
     )
     parsed_domain = urlparse(domain)
 
@@ -56,8 +58,8 @@ def prepare_resources(resources_paths, files_dir_path, base_url):
                     parsed_resource_url.path,
                     "",
                     parsed_resource_url.query,
-                    parsed_resource_url.fragment
-                )
+                    parsed_resource_url.fragment,
+                ),
             )
 
         if not full_resource_url:
@@ -66,7 +68,7 @@ def prepare_resources(resources_paths, files_dir_path, base_url):
         resource_file_name = get_file_name(full_resource_url)
         new_resource_path = os.path.join(
             os.path.basename(files_dir_path),
-            resource_file_name
+            resource_file_name,
         )
         tag[attribute] = new_resource_path
         resource_file_path = os.path.join(files_dir_path, resource_file_name)
