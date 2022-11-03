@@ -17,41 +17,6 @@ BASE_URL = 'https://ru.hexlet.io'
 PAGE_FILES_DIR = 'ru-hexlet-io-courses_files'
 
 
-@pytest.fixture()
-def content():
-    return read_file('tests/fixtures/file1.html', 'r')
-
-
-@pytest.fixture()
-def image():
-    return read_file('tests/fixtures/nodejs.png', 'rb')
-
-
-@pytest.fixture()
-def style():
-    return read_file('tests/fixtures/style.css', 'rb')
-
-
-@pytest.fixture()
-def script():
-    return read_file('tests/fixtures/script.js', 'rb')
-
-
-@pytest.fixture()
-def html():
-    return read_file('tests/fixtures/page_without_res.html', 'r')
-
-
-@pytest.fixture()
-def correct_names():
-    return {
-        'html': 'ru-hexlet-io-courses.html',
-        'img': 'ru-hexlet-io-assets-professions-nodejs.png',
-        'css': 'ru-hexlet-io-assets-application.css',
-        'js': 'ru-hexlet-io-packs-js-runtime.js',
-    }
-
-
 def test_download_page_with_res(content, correct_names, image, style, script):
 
     with requests_mock.Mocker() as mock:
