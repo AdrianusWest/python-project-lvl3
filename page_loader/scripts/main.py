@@ -1,8 +1,7 @@
-import argparse
-import os
 import sys
 
 from page_loader.download import download
+from page_loader.cli import parse_args
 from page_loader.logger import get_logger
 
 
@@ -10,14 +9,7 @@ logger = get_logger(__name__)
 
 
 def main():
-    parser = argparse.ArgumentParser(description='Downloads page')
-    parser.add_argument('page_url', type=str)
-    parser.add_argument(
-        "-o", "--output",
-        help='Set the path to directory',
-        default=os.getcwd(),
-    )
-    args = parser.parse_args()
+    args = parse_args()
     try:
         path = download(args.page_url, args.output)
     except Exception as e:
