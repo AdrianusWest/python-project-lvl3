@@ -17,6 +17,15 @@ BASE_URL = 'https://ru.hexlet.io'
 PAGE_FILES_DIR = 'ru-hexlet-io-courses_files'
 
 
+@pytest.mark.parametrize(
+    argnames='content',
+    argvalues=[
+        [
+            'file1.html',
+        ],
+    ],
+    indirect=True,
+)
 def test_download_page_with_res(content, correct_names, image, style, script):
 
     with requests_mock.Mocker() as mock:
@@ -27,7 +36,8 @@ def test_download_page_with_res(content, correct_names, image, style, script):
 
         with tempfile.TemporaryDirectory() as temp:
 
-            correct_html = read_file('tests/fixtures/html_result.html', 'r')
+            correct_html = read_file(os.path.join(
+                os.path.dirname(__file__), 'fixtures', 'html_result.html'), 'r')
             correct_path = os.path.join(temp, correct_names.get('html'))
             result_path = download(BASE_URL + SITE_PATH, temp)
             assert read_file(result_path, 'r') == correct_html

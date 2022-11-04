@@ -36,11 +36,9 @@ def download(base_url, output_path):
 
 
 def download_resources(resources):
-    progress = ChargingBar('Downloading resources...', max=len(resources))
-
-    for resource_url, resource_path in resources:
-        progress.next()
-        resource = load_content(resource_url)
-        save_data_as_file(resource, resource_path)
-
-    progress.finish()
+    with ChargingBar('Downloading resources...',
+                     max=len(resources)) as progress:
+        for resource_url, resource_path in resources:
+            progress.next()
+            resource = load_content(resource_url)
+            save_data_as_file(resource, resource_path)

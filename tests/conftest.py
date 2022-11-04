@@ -1,31 +1,39 @@
+import os
+
 from file_reader import read_file
 
 import pytest
 
 
 @pytest.fixture()
-def content():
-    return read_file('tests/fixtures/file1.html', 'r')
+def content(request):
+    filename, = request.param
+    return read_file(os.path.join(os.path.dirname(__file__),
+                                  'fixtures', filename), 'r')
 
 
 @pytest.fixture()
 def image():
-    return read_file('tests/fixtures/nodejs.png', 'rb')
+    return read_file(os.path.join(os.path.dirname(__file__),
+                                  'fixtures', 'nodejs.png'), 'rb')
 
 
 @pytest.fixture()
 def style():
-    return read_file('tests/fixtures/style.css', 'rb')
+    return read_file(os.path.join(os.path.dirname(__file__),
+                                  'fixtures', 'style.css'), 'rb')
 
 
 @pytest.fixture()
 def script():
-    return read_file('tests/fixtures/script.js', 'rb')
+    return read_file(os.path.join(os.path.dirname(__file__),
+                                  'fixtures', 'script.js'), 'rb')
 
 
 @pytest.fixture()
 def html():
-    return read_file('tests/fixtures/page_without_res.html', 'r')
+    return read_file(os.path.join(os.path.dirname(__file__),
+                                  'fixtures', 'page_without_res.html'), 'r')
 
 
 @pytest.fixture()
