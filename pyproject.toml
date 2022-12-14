@@ -22,7 +22,7 @@ progress = "^1.6"
 requests-mock = "^1.10.0"
 coverage = "^6.4.1"
 testresources = "^2.0.1"
-lxml = "^4.9.0"
+lxml = "^4.9.2"
 beautifulsoup4 = "^4.11.1"
 
 [tool.poetry.dev-dependencies]
