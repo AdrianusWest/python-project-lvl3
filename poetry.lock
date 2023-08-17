@@ -379,21 +379,6 @@ eradicate = ">=2.0,<3.0"
 flake8 = ">5"
 
 [[package]]
-name = "flake8-import-order"
-version = "0.18.2"
-description = "Flake8 and pylama plugin that checks the ordering of import statements."
-optional = false
-python-versions = "*"
-files = [
-    {file = "flake8-import-order-0.18.2.tar.gz", hash = "sha256:e23941f892da3e0c09d711babbb0c73bc735242e9b216b726616758a920d900e"},
-    {file = "flake8_import_order-0.18.2-py2.py3-none-any.whl", hash = "sha256:82ed59f1083b629b030ee9d3928d9e06b6213eb196fe745b3a7d4af2168130df"},
-]
-
-[package.dependencies]
-pycodestyle = "*"
-setuptools = "*"
-
-[[package]]
 name = "flake8-mutable"
 version = "1.2.0"
 description = "mutable defaults flake8 extension"
@@ -471,6 +456,23 @@ files = [
     {file = "iniconfig-2.0.0-py3-none-any.whl", hash = "sha256:b6a85871a79d2e3b22d2d1b94ac2824226a63c6b741c88f7ae975f18b6778374"},
     {file = "iniconfig-2.0.0.tar.gz", hash = "sha256:2d91e135bf72d31a410b17c16da610a82cb55f6b0477d1a902134b24a455b8b3"},
 ]
+
+[[package]]
+name = "isort"
+version = "5.12.0"
+description = "A Python utility / library to sort Python imports."
+optional = false
+python-versions = ">=3.8.0"
+files = [
+    {file = "isort-5.12.0-py3-none-any.whl", hash = "sha256:f84c2818376e66cf843d497486ea8fed8700b340f308f076c6fb1229dff318b6"},
+    {file = "isort-5.12.0.tar.gz", hash = "sha256:8bef7dde241278824a6d83f44a544709b065191b95b6e50894bdc722fcba0504"},
+]
+
+[package.extras]
+colors = ["colorama (>=0.4.3)"]
+pipfile-deprecated-finder = ["pip-shims (>=0.5.2)", "pipreqs", "requirementslib"]
+plugins = ["setuptools"]
+requirements-deprecated-finder = ["pip-api", "pipreqs"]
 
 [[package]]
 name = "lxml"
@@ -875,4 +877,4 @@ zstd = ["zstandard (>=0.18.0)"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11.3"
-content-hash = "fc3a1de0b3fe1ba053e65d470d34941c8ebb226ffe11f002a82c7e6ab16f2996"
+content-hash = "11fae64e3d1c7edeea3ed43e82fc1c3e8d720faa5c6ef2d59255b8d04227b134"

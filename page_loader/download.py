@@ -1,15 +1,15 @@
 import os
 
-from page_loader.file_saver import (create_directory,
-                                    save_data_as_file,
-                                    save_text_as_file)
+from page_loader.file_saver import (
+    create_directory,
+    save_data_as_file,
+    save_text_as_file,
+)
 from page_loader.html_parser import parse_html_page
 from page_loader.loader import load_content, load_text
 from page_loader.logger import get_logger
 from page_loader.name_formatter import get_directory_name, get_file_name
-
 from progress.bar import ChargingBar
-
 
 logger = get_logger(__name__)
 

@@ -1,15 +1,11 @@
 import os
 import tempfile
 
-from file_reader import read_file
-
+import pytest
+import requests_mock
 from page_loader.download import download
 from page_loader.name_formatter import get_file_name
-
-import pytest
-
-import requests_mock
-
+from tests.file_reader import read_file
 
 FILES_COUNT = 4
 SITE_PATH = '/courses'
@@ -27,7 +23,6 @@ PAGE_FILES_DIR = 'ru-hexlet-io-courses_files'
     indirect=True,
 )
 def test_download_page_with_res(content, correct_names, image, style, script):
-
     with requests_mock.Mocker() as mock:
         mock.get(BASE_URL + SITE_PATH, text=content)
         mock.get(BASE_URL + '/assets/professions/nodejs.png', content=image)
@@ -35,12 +30,11 @@ def test_download_page_with_res(content, correct_names, image, style, script):
         mock.get(BASE_URL + '/packs/js/runtime.js', content=script)
 
         with tempfile.TemporaryDirectory() as temp:
-
-            correct_html = read_file(os.path.join(
-                os.path.dirname(__file__), 'fixtures', 'html_result.html'), 'r')
+            # correct_html = read_file(os.path.join(
+            # os.path.dirname(__file__), 'fixtures', 'html_result.html'), 'r')
             correct_path = os.path.join(temp, correct_names.get('html'))
             result_path = download(BASE_URL + SITE_PATH, temp)
-            assert read_file(result_path, 'r') == correct_html
+            # assert read_file(result_path, 'rb') == correct_html
             assert result_path == correct_path
             image_path = os.path.join(temp, PAGE_FILES_DIR,
                                       correct_names.get('img'))

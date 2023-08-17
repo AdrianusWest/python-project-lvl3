@@ -2,12 +2,9 @@ import os
 from urllib.parse import urljoin, urlparse, urlunparse
 
 from bs4 import BeautifulSoup
-
 from page_loader.logger import get_logger
 from page_loader.name_formatter import get_file_name
-
 from progress.bar import ChargingBar
-
 
 TAGS_ATTRIBUTES = {
     'img': 'src',

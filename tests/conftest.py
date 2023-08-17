@@ -1,8 +1,7 @@
 import os
 
-from file_reader import read_file
-
 import pytest
+from tests.file_reader import read_file
 
 
 @pytest.fixture()

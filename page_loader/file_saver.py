@@ -2,7 +2,6 @@ import os
 
 from page_loader.logger import get_logger
 
-
 logger = get_logger(__name__)
 
 

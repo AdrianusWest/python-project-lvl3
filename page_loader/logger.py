@@ -1,7 +1,6 @@
 import logging
 import logging.config
 
-
 FORMAT = '[%(asctime)s %(levelname)s]:%(message)s'
 
 
