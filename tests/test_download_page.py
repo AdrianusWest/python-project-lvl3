@@ -84,7 +84,7 @@ def test_download_page_without_res(correct_names, html):
 ])
 def test_download_with_errors(url, exception):
     with tempfile.TemporaryDirectory() as temp:
-        with pytest.raises(Exception):
+        with pytest.raises(Exception):  # noqa: B017
             download(url, temp)
 
 
